@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">nutrisiputihabu</string>
+    <string name="title_exit_activity">exit activity</string>
 </resources>
