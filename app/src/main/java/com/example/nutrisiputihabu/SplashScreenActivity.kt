@@ -1,6 +1,7 @@
 package com.example.nutrisiputihabu
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -10,16 +11,19 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier // Corrected import
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.nutrisiputihabu.ui.theme.NutrisiputihabuTheme
+import kotlinx.coroutines.delay
 
 
-@SuppressLint("CustomSplashScreen")
+@SuppressLint("SplashScreen", "CustomSplashScreen")
 class SplashScreenActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +36,11 @@ class SplashScreenActivity : ComponentActivity() {
     @Preview
     @Composable
     private fun SplashScreen() {
+        val context = LocalContext.current
+        LaunchedEffect(key1 = true) {
+            delay(2000)
+            context.startActivity(Intent(context, LoginFormActivity()::class.java))
+        }
         Box(modifier = Modifier
             .fillMaxSize()
             .background(Color.Black),
@@ -43,5 +52,10 @@ class SplashScreenActivity : ComponentActivity() {
                     . size(200.dp),
                 contentDescription = null)
         }
+    }
+
+    private @Composable
+    fun LoginActivity() {
+        TODO("Not yet implemented")
     }
 }

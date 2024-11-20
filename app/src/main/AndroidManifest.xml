@@ -24,6 +24,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" android:exported="false" />
+        <activity
+            android:name=".LoginFormActivity"
+            android:exported="false"
+            tools:ignore="Instantiatable" />
+
     </application>
 
 </manifest>
